@@ -1,0 +1,70 @@
+.quiz3-page {
+    background: linear-gradient(135deg, #111, #222);
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.time-component {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #00E5FF;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.8); /* Glühender Effekt */
+}
+
+.title {
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Orbitron', sans-serif;
+    color: #00E5FF;
+    margin-bottom: 30px;
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+}
+
+/*.submit-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.6);
+    border: 2px solid #00E5FF;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.submit-button-correct:hover {
+background-color: #00B8D4;
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+}
+
+.submit-button-incorrect:hover {
+    background-color: #444;
+    box-shadow: none;
+}
+
+.submit-button-incorrect {
+    background-color: #333
+    color: lightgray;
+}
+
+
+.submit-button-correct {
+    background-color: #00E5FF;
+    color: black;
+}
+
+.submit-button:active {
+    transform: scale(0.95);
+}
+*/
