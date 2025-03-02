@@ -14,8 +14,8 @@ const ClueDialog: React.FC<ClueDialogProps> = ({ open, handleClose, dialogPopupC
             onClose={handleClose}
             sx={{
                 "& .MuiDialog-paper": {
-                    backgroundColor: "#333", // Dark gray background
-                    color: "white", // White text
+                    backgroundColor: "#333",
+                    color: "white",
                     width: "90%",
                     maxWidth: "400px",
                     padding: "20px",
@@ -23,11 +23,11 @@ const ClueDialog: React.FC<ClueDialogProps> = ({ open, handleClose, dialogPopupC
                     borderRadius: "10px",
                 },
                 "& .MuiBackdrop-root": {
-                    backgroundColor: "rgba(255,255,255,0.59)", // Almost transparent white
+                    backgroundColor: "rgba(255,255,255,0.59)",
                 },
             }}
         >
-            <DialogTitle sx={{ color: "white" }}>Clue</DialogTitle>
+            <DialogTitle sx={{ color: "white" }}>Hinweis</DialogTitle>
             <DialogContent>
                 <Typography>{dialogPopupContent}</Typography>
             </DialogContent>
