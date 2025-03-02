@@ -19,7 +19,8 @@ function CountdownTimer() {
                           0 0 5px #0bfbfa,
                         0 0 10px rgba(11, 251, 250, 0.6),
                         0 0 15px rgba(11, 251, 250, 0.4)
-                `
+                `,
+                paddingLeft:3
             }}
         >
             {formatTime(secondsLeft)} verbleibend

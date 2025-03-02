@@ -1,16 +1,16 @@
 import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import HomePagePic from '../assets/HomePagePic.png';
-import {useTimer} from "../TimerContext";
+import HomePagePic from '../../assets/HomePagePic.png';
 import {useNavigate} from "react-router-dom";
+import {useTimer} from "../../TimerContext";
 
 function Home() {
     const navigate = useNavigate();
     const { startTimer } = useTimer();
 
     const handlePlayButton = () => {
-        //navigate("/quiz1");
+        navigate("/1");
         startTimer(300);
 
     };
