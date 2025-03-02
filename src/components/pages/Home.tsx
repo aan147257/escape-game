@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import HomePagePic from '../../assets/HomePagePic.png';
+import HomePagePic from '../../assets/homePagePic.png';
 import {useNavigate} from "react-router-dom";
 import {useTimer} from "../../TimerContext";
 
