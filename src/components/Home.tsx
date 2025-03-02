@@ -35,7 +35,7 @@ function Home() {
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    backgroundColor: 'rgba(0,0,0,0.87)',
                     zIndex: 1
                 }}
             />
@@ -53,28 +53,53 @@ function Home() {
                         color: '#0bfbfa',
                         fontWeight: 'bold',
                         marginBottom: '10px',
-                        fontFamily: 'Orbitron, sans-serif'
+                        fontFamily: 'Orbitron, sans-serif',
+                        fontSize: '10vw',
+                        textShadow: `
+                            0 0 5px #0bfbfa,
+                            0 0 10px rgba(11, 251, 250, 0.6),
+                            0 0 15px rgba(11, 251, 250, 0.4)
+                        `
                     }}
                 >
                     ESCAPE
                 </Typography>
+
                 <Typography
                     variant="h1"
                     sx={{
                         color: 'white',
                         fontWeight: 'bold',
                         marginBottom: '30px',
-                        fontFamily: 'Orbitron, sans-serif'
+                        fontFamily: 'Orbitron, sans-serif',
+                        fontSize: '10vw',
+                        textShadow: `
+                            0 0 5px #fff,
+                            0 0 10px rgba(255, 255, 255, 0.6),
+                            0 0 15px rgba(255, 255, 255, 0.4)
+                        `
                     }}
                 >
                     GAME
                 </Typography>
+
                 <IconButton
                     sx={{
-                        backgroundColor: '#019e9c',
+                        backgroundColor: '#05b8bd',
                         color: 'white',
-                        '&:hover': {
+                        transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
+                        '&:hover, &:focus': {
                             backgroundColor: '#0bfbfa',
+                            boxShadow: `
+                                0 0 20px #fff,
+                                0 0 30px #fff,
+                                0 0 40px rgba(255, 255, 255, 0.7),
+                                0 0 70px rgba(255, 255, 255, 0.5),
+                                0 0 100px rgba(255, 255, 255, 0.3)
+                            `
+                        },
+                        '&:active': {
+                            backgroundColor: '#0bfbfa'
                         },
                         borderRadius: 2,
                         width: '10vw',
@@ -83,6 +108,9 @@ function Home() {
                 >
                     <PlayArrowIcon />
                 </IconButton>
+
+
+
             </Box>
         </Box>
     );
