@@ -5,7 +5,11 @@ import QuizHeader from "../molecules/QuizHeader";
 function Quiz1() {
     return (
         <Box>
-            <QuizHeader/>
+            <QuizHeader
+                dialogPopupContent={
+                    "Hier Kommt der Text für die Hinweise rein! Dieser Beispiel befindet sich im Quiz1.txt Page."
+                }
+            />
         </Box>
     );
 }

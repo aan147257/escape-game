@@ -1,0 +1,38 @@
+import React from "react";
+import { Dialog, DialogTitle, DialogContent, Typography } from "@mui/material";
+
+interface ClueDialogProps {
+    open: boolean;
+    handleClose: () => void;
+    dialogPopupContent: string;
+}
+
+const ClueDialog: React.FC<ClueDialogProps> = ({ open, handleClose, dialogPopupContent }) => {
+    return (
+        <Dialog
+            open={open}
+            onClose={handleClose}
+            sx={{
+                "& .MuiDialog-paper": {
+                    backgroundColor: "#333", // Dark gray background
+                    color: "white", // White text
+                    width: "90%",
+                    maxWidth: "400px",
+                    padding: "20px",
+                    textAlign: "center",
+                    borderRadius: "10px",
+                },
+                "& .MuiBackdrop-root": {
+                    backgroundColor: "rgba(255,255,255,0.59)", // Almost transparent white
+                },
+            }}
+        >
+            <DialogTitle sx={{ color: "white" }}>Clue</DialogTitle>
+            <DialogContent>
+                <Typography>{dialogPopupContent}</Typography>
+            </DialogContent>
+        </Dialog>
+    );
+};
+
+export default ClueDialog;
