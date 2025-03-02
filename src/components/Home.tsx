@@ -2,8 +2,19 @@ import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import HomePagePic from '../assets/HomePagePic.png';
+import {useTimer} from "../TimerContext";
+import {useNavigate} from "react-router-dom";
 
 function Home() {
+    const navigate = useNavigate();
+    const { startTimer } = useTimer();
+
+    const handlePlayButton = () => {
+        //navigate("/quiz1");
+        startTimer(300);
+
+    };
+
     return (
         <Box
             sx={{
@@ -29,13 +40,11 @@ function Home() {
                 }}
             />
 
-            {/* Inhalt (Text und Button) */}
             <Box
                 sx={{
                     position: 'relative',
                     zIndex: 2,
                     textAlign: 'center',
-                    color: '#1D3924'
                 }}
             >
                 <Typography
@@ -70,6 +79,7 @@ function Home() {
                         borderRadius: 2,
                         width: '10vw',
                     }}
+                    onClick={handlePlayButton}
                 >
                     <PlayArrowIcon />
                 </IconButton>
