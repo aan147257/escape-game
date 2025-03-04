@@ -11,7 +11,7 @@ function Home() {
 
     const handlePlayButton = () => {
         navigate("/1");
-        startTimer(300);
+        startTimer(1200);
 
     };
 
@@ -35,7 +35,7 @@ function Home() {
                     position: 'absolute',
                     width: '100%',
                     height: '100%',
-                    backgroundColor: 'rgba(0,0,0,0.87)',
+                    backgroundColor: 'rgba(0,0,0,0.75)',
                     zIndex: 1
                 }}
             />

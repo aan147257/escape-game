@@ -1,15 +1,17 @@
 import React from 'react';
 import {Box} from "@mui/material";
 import QuizHeader from "../molecules/QuizHeader";
+import ColorGrid from "../molecules/ColorGrid";
 
 function Quiz1() {
     return (
         <Box>
             <QuizHeader
                 dialogPopupContent={
-                    "Hier Kommt der Text für die Hinweise rein! Dieser Beispiel befindet sich im Quiz1.txt Page."
+                    "🌈"
                 }
             />
+            <ColorGrid/>
         </Box>
     );
 }
