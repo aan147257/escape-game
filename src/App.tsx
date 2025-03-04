@@ -4,7 +4,7 @@ import {TimerProvider} from "./TimerContext";
 import Quiz1 from "./components/pages/Quiz1";
 import Home from "./components/pages/Home";
 import Quiz4 from "./components/pages/Quiz4Page";
-import Quiz3 from "./components/Quiz3Page";
+import Quiz3 from "./components/pages/Quiz3Page";
 
 
 function App() {

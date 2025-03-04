@@ -2,6 +2,7 @@ import {Box, TextField, Button} from "@mui/material";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "./Quiz3Page.css";
+import QuizHeader from "../molecules/QuizHeader";
 
 function Quiz3Page() {
     const [temperature, setTemperature] = useState("");
@@ -18,10 +19,7 @@ function Quiz3Page() {
 
     return (
         <Box className="quiz3-page">
-            {/* Zeitkomponente oben links */}
-            <Box className="time-component">
-                <p>7:25 verbleibend</p>
-            </Box>
+            <QuizHeader dialogPopupContent={"🌈"}/>
 
             <h1 className="title">
                 Wie warm ist es im Raum?
@@ -57,7 +55,7 @@ function Quiz3Page() {
             />
 
             <Button
-                onClick={() => navigate("./Quiz1Page")}
+                onClick={() => navigate("/4")}
                 disabled={!isCorrect}
                 className="submit-button"
                 sx={{
