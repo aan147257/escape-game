@@ -69,7 +69,7 @@ function Quiz4Page() {
 
                 {/* Submit-Button */}
                 <Button
-                    onClick={() => navigate("/5")}
+                    onClick={() => navigate("/8")}
                     disabled={!isCorrect}
                     className="submit-button"
                     sx={{
