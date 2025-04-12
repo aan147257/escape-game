@@ -23,7 +23,7 @@ const ColorGrid = () => {
     const checkOrder = () => {
         if (JSON.stringify(colors.map((item) => item.color)) === JSON.stringify(correctOrder)) {
             alert('✔️ Richtig! Du hast die Farben in der richtigen Reihenfolge gesetzt.');
-            navigate('/3');
+            navigate('/2');
         } else {
             alert('❌ Falsch! Versuche es noch einmal.');
         }
