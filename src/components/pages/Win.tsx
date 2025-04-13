@@ -1,19 +1,20 @@
 import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import HomePagePic from '../../assets/homePagePic.png';
 import {useNavigate} from "react-router-dom";
 import {useTimer} from "../../TimerContext";
+import CountdownTimer from "../atoms/CountdownTimer";
+import RefreshIcon from '@mui/icons-material/Refresh';
 import { routeMap } from "../../App";
 
-function Home() {
+function Win() {
     const navigate = useNavigate();
-    const { startTimer } = useTimer();
+    const { pauseTimer, resumeTimer} = useTimer();
+    pauseTimer();
 
     const handlePlayButton = () => {
-        navigate(routeMap.quiz1);
-        startTimer(1200);
-
+        resumeTimer()
+        navigate(routeMap.home);
     };
 
     return (
@@ -63,30 +64,14 @@ function Home() {
                         `
                     }}
                 >
-                    ESCAPE
+                    WIN
                 </Typography>
 
-                <Typography
-                    variant="h1"
-                    sx={{
-                        color: 'white',
-                        fontWeight: 'bold',
-                        marginBottom: '30px',
-                        fontFamily: 'Orbitron, sans-serif',
-                        fontSize: '10vw',
-                        textShadow: `
-                            0 0 5px #fff,
-                            0 0 10px rgba(255, 255, 255, 0.6),
-                            0 0 15px rgba(255, 255, 255, 0.4)
-                        `
-                    }}
-                >
-                    GAME
-                </Typography>
-
+                <CountdownTimer/>
                 <IconButton
                     sx={{
-                        backgroundColor: '#00E5FF',
+                        marginTop:"4rem",
+                        backgroundColor: '#05b8bd',
                         color: 'white',
                         transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
                         '&:hover, &:focus': {
@@ -107,9 +92,8 @@ function Home() {
                     }}
                     onClick={handlePlayButton}
                 >
-                    <PlayArrowIcon />
+                    <RefreshIcon />
                 </IconButton>
-
 
 
             </Box>
@@ -117,4 +101,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Win;

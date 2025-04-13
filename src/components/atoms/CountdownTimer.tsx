@@ -10,16 +10,14 @@ function CountdownTimer() {
         const secs = seconds % 60;
         return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
     };
+
     return(
         <Typography
             variant="h6"
             sx={{
-                color: "#0bfbfa",
-                textShadow: `
-                          0 0 5px #0bfbfa,
-                        0 0 10px rgba(11, 251, 250, 0.6),
-                        0 0 15px rgba(11, 251, 250, 0.4)
-                `,
+                fontFamily: "'Orbitron', sans-serif",
+                color: "#00E5FF",
+                textShadow: "0 0 12px rgba(0, 229, 255, 0.8)",
                 paddingLeft:3
             }}
         >

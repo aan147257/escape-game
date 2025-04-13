@@ -1,19 +1,18 @@
 import React from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import HomePagePic from '../../assets/homePagePic.png';
 import {useNavigate} from "react-router-dom";
 import {useTimer} from "../../TimerContext";
 import { routeMap } from "../../App";
 
-function Home() {
+function GameOver() {
     const navigate = useNavigate();
-    const { startTimer } = useTimer();
+    const { resumeTimer } = useTimer();
 
     const handlePlayButton = () => {
-        navigate(routeMap.quiz1);
-        startTimer(1200);
-
+        resumeTimer()
+        navigate(routeMap.home);
     };
 
     return (
@@ -63,7 +62,7 @@ function Home() {
                         `
                     }}
                 >
-                    ESCAPE
+                    GAME
                 </Typography>
 
                 <Typography
@@ -81,12 +80,11 @@ function Home() {
                         `
                     }}
                 >
-                    GAME
+                    OVER
                 </Typography>
-
                 <IconButton
                     sx={{
-                        backgroundColor: '#00E5FF',
+                        backgroundColor: '#05b8bd',
                         color: 'white',
                         transition: 'background-color 0.3s ease, box-shadow 0.3s ease',
                         '&:hover, &:focus': {
@@ -107,7 +105,7 @@ function Home() {
                     }}
                     onClick={handlePlayButton}
                 >
-                    <PlayArrowIcon />
+                    <RefreshIcon />
                 </IconButton>
 
 
@@ -117,4 +115,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default GameOver;

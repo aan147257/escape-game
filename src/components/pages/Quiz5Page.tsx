@@ -1,110 +1,52 @@
-import {Box, TextField, Button} from "@mui/material";
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import QuizHeader from "../molecules/QuizHeader";
-import "./Quiz5Page.css";
+import { Box } from "@mui/material";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import QuizContainer from "../molecules/QuizContainer";
+import AtomicInput from "../atoms/AtomicInput";
+import { routeMap } from "../../App";
 
-function Quiz4Page() {
+function Quiz5Page() {
     const [inputs, setInputs] = useState(["", "", ""]);
     const navigate = useNavigate();
 
-    const handleChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-
-        // Erlaubt Buchstaben (A-Z, a-z) (erlaubt auch französische Buchstaben) und ignoriert alles andere
-        if (/^[A-Za-zÀ-ÿ\- ]*$/.test(value)) {
+    const handleChange = (value: string, index?: number) => {
+        if (/^[A-Za-zÀ-ÿ\- ]*$/.test(value) && index !== undefined) {
             const newInputs = [...inputs];
-            newInputs[index] = value;
+            newInputs[ index ] = value;
             setInputs(newInputs);
         }
     };
 
-    const isCorrect = inputs[0].toLowerCase() === "calcium" && inputs[1].toLowerCase() === "oxygène" && inputs[2].toLowerCase() === "carbone";
+
+    const isCorrect = inputs[ 0 ].toLowerCase() === "calcium" && inputs[ 1 ].toLowerCase() === "oxygène" && inputs[ 2 ].toLowerCase() === "carbone";
 
 
     return (
-        <Box
-            className="quiz5-page"
+        <QuizContainer
+            titleContent={" Placez les éléments dans l'ordre correct:"}
+            onClick={() => navigate(routeMap.quiz6)}
+            disabled={!isCorrect}
         >
-            <QuizHeader dialogPopupContent={"🌈"}/>
-            <h1 className="title">
-                Placez les éléments dans l'ordre correct:
-            </h1>
-
             {/* Eingabefelder nebeneinander */}
-            <Box sx={{display: "flex", justifyContent: "center", gap: "20px", marginBottom: "30px"}}>
+            <Box sx={{ display: "flex", justifyContent: "center", gap: "rem" }}>
                 {inputs.map((input, index) => (
                     <Box key={index} sx={{ display: "flex", alignItems: "center" }}>
-                        <TextField
-                            key={index}
+                        <AtomicInput
                             value={input}
-                            onChange={handleChange(index)}
-                            variant="outlined"
-                            sx={{
-                                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                                border: "2px solid #00E5FF",
-                                borderRadius: "8px",
-                                textAlign: "center",
-                                input: {
-                                    textAlign: "center",
-                                    color: "#FFFFFF",
-                                    fontSize: "28px",
-                                    fontFamily: "'Orbitron', sans-serif",
-                                },
-                                width: "250px",
-                                padding: "16px",
-                                "& .MuiOutlinedInput-notchedOutline": {
-                                    border: "none",
-                                },
-                                "&:hover .MuiOutlinedInput-notchedOutline": {
-                                    border: "2px solid #00E5FF",
-                                },
-                                "& .MuiInputBase-input": {
-                                    textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
-                                },
-                            }}
+                            index={index}
+                            onChange={handleChange}
                         />
+
                         {index < inputs.length - 1 && (
-                            <Box sx={{color: "#00E5FF", fontSize: "30px", fontWeight: "bold", mx: 2}}>+</Box>
+                            <Box sx={{ color: "#00E5FF", fontSize: "30px", fontWeight: "bold", mx: 2 }}>+</Box>
                         )}
                     </Box>
                 ))}
 
             </Box>
 
-            {/* Submit-Button */}
-            <Button
-                onClick={() => navigate("/6")}
-                disabled={!isCorrect}
-                className="submit-button"
-                sx={{
-                    position: "absolute",
-                    bottom: "20px",
-                    right: "20px",
-                    backgroundColor: isCorrect ? "#00E5FF" : "#333",
-                    color: isCorrect ? "black" : "lightgray",
-                    fontFamily: "'Orbitron', sans-serif",
-                    fontSize: "18px",
-                    textTransform: "uppercase",
-                    letterSpacing: "1px",
-                    padding: "12px 24px",
-                    borderRadius: "50px",
-                    boxShadow: "0px 4px 8px rgba(0, 229, 255, 0.6)",
-                    border: "2px solid #00E5FF",
-                    "&:hover": {
-                        backgroundColor: isCorrect ? "#00B8D4" : "#444",
-                        boxShadow: isCorrect ? "0 0 12px rgba(0, 229, 255, 0.8)" : "none",
-                    },
-                    transition: "background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:active": {
-                        transform: "scale(0.95)",
-                    }
-                }}
-            >
-                Submit
-            </Button>
-        </Box>
+        </QuizContainer>
     );
 }
 
-export default Quiz4Page;
+export default Quiz5Page;

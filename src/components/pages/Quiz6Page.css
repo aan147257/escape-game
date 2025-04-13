@@ -1,9 +1,0 @@
-.quiz6-page {
-    background: linear-gradient(135deg, #111, #222);
-    min-height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    display: flex;
-}

@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {Box, Button} from "@mui/material";
-import QuizHeader from "../molecules/QuizHeader";
 import {useNavigate} from "react-router-dom";
-import "./Quiz2Page.css";
+import QuizContainer from "../molecules/QuizContainer";
+import { TextField } from "@mui/material";
+import { routeMap } from "../../App";
 
 function Quiz2() {
     const [inputValue, setInputValue] = useState<number>(0);
@@ -18,72 +18,67 @@ function Quiz2() {
     const isCorrect = inputValue === 21;
 
     return (
-        <Box className="quiz2-page">
-            <QuizHeader dialogPopupContent={"🌈"}/>
-
-            <Box
-                sx={{
-                    marginBottom: "40px",
-                }}
-            >
-                <input
-                    type="number"
-                    min="0"
-                    max="25"
-                    step="1"
-                    value={inputValue}
-                    onChange={handleChange}
-                    onKeyDown={(e) => e.preventDefault()} // Tastatur-Eingabe blockieren
-                    style={{
-                        fontSize: "28px",
-                        padding: "14px 24px",
-                        borderRadius: "10px",
-                        border: "2px solid #00E5FF",
-                        backgroundColor: "black",
-                        color: "#00E5FF",
-                        textAlign: "center",
-                        appearance: "none",
-                        WebkitAppearance: "none",
-                        MozAppearance: "textfield",
-                        boxShadow: "0 0 12px #00E5FF",
-                        outline: "none",
-                        marginTop: "22%",
-                    }}
-                />
-            </Box>
-
-            <Button
-                onClick={() => {
-                    if (isCorrect) navigate("/3");
-                }}
-                className="submit-button"
-                sx={{
-                    position: "absolute",
-                    bottom: "20px",
-                    right: "20px",
-                    backgroundColor: "#00E5FF",
-                    color: "black",
-                    fontFamily: "'Orbitron', sans-serif",
-                    fontSize: "18px",
-                    textTransform: "uppercase",
-                    letterSpacing: "1px",
-                    padding: "12px 24px",
-                    borderRadius: "50px",
-                    boxShadow: "0px 4px 8px rgba(0, 229, 255, 0.6)",
-                    border: "2px solid #00E5FF", // Neon-Linie für Tron
-                    "&:hover": {
-                        backgroundColor: "#00B8D4",
-                        boxShadow: "0 0 12px rgba(0, 229, 255, 0.8)",
+        <QuizContainer
+            onClick={() => {if (isCorrect)navigate(routeMap.quiz3)}}
+            titleContent={""}
+        >
+            <TextField
+                type="number"
+                value={inputValue}
+                onChange={handleChange}
+                inputMode="numeric"
+                slotProps={{
+                    input: {
+                        inputProps: {
+                            min: 0,
+                            max: 25,
+                            step: 1,
+                        },
                     },
-                    transition: "background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
-                    "&:active": {
-                        transform: "scale(0.95)", // Leichter Klick-Effekt
-                    }
                 }}
-            >
-                Submit
-            </Button>
-        </Box>
+                sx={{
+                    flexGrow: 1,
+                    minWidth: 60,
+                    maxWidth: 200,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    border: "2px solid #00E5FF",
+                    borderRadius: "8px",
+                    textAlign: "center",
+                    input: {
+                        textAlign: "center",
+                        color: "#FFFFFF",
+                        fontSize: "2rem",
+                        fontFamily: "'Orbitron', sans-serif",
+                        '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
+                            WebkitAppearance: 'auto',
+                            height: '1.5em',
+                            width: '1.5em',
+                            filter: 'invert(100%)',
+                            opacity: 0.8,
+                            cursor: 'pointer',
+                            background: 'transparent', // <-- this line removes the square
+                            border: 'none',             // <-- just in case there's a border
+                            padding: 0,                 // <-- extra safe
+                            margin: 0,                  // <-- extra safe
+                        },
+                        '&[type=number]': {
+                            MozAppearance: 'textfield',
+                        },
+                    },
+
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        border: "none",
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        border: "2px solid #00E5FF",
+                    },
+                    "& .MuiInputBase-input": {
+                        textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
+                    },
+                }}
+            />
+
+        </QuizContainer>
     );
 }
 
