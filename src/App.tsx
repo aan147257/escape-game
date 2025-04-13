@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Navigate, Route, Routes } from "react-router-dom";
 import { TimerProvider } from "./TimerContext";
 import Quiz1 from "./components/pages/Quiz1";
 import Quiz2 from "./components/pages/Quiz2Page";
@@ -29,7 +29,7 @@ export const routeMap = {
 
 function App() {
     return (
-        <BrowserRouter>
+        <Router>
             <TimerProvider>
                 <Routes>
                     <Route path="/h7Mwe" element={<Home />} />
@@ -44,9 +44,10 @@ function App() {
                     <Route path="/gmOv" element={<GameOver />} />
                     <Route path="/Qw3qz4NWwQw3qz4NWw" element={<Win />} />
                     <Route path="*" element={<GameOver />} />
+                    <Route path="/" element={<Navigate to="/h7Mwe" />} />
                 </Routes>
             </TimerProvider>
-        </BrowserRouter>
+        </Router>
     );
 }
 
