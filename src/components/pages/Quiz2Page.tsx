@@ -27,6 +27,7 @@ function Quiz2() {
                 value={inputValue}
                 onChange={handleChange}
                 inputMode="numeric"
+                onKeyDown={(e) => e.preventDefault()}
                 slotProps={{
                     input: {
                         inputProps: {
