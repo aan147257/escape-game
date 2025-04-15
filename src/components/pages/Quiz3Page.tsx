@@ -1,32 +1,85 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import QuizContainer from "../molecules/QuizContainer";
-import AtomicInput from "../atoms/AtomicInput";
-import { Box } from "@mui/material";
+import { Box, FormControl, MenuItem, Select } from "@mui/material";
 import { routeMap } from "../../App";
+import AtomicInput from "../atoms/AtomicInput";
 
 function Quiz3Page() {
-    const [temperature, setTemperature] = useState("");
+    const [value, setValue] = useState<number>(0);
+    const [inputValue, setInputValue] = useState<string>("");
     const navigate = useNavigate();
 
-    const handleChange = (value: string) => {
-        if (/^\d*[.,]?\d*$/.test(value)) { // Erlaubt Zahlen + optional einen Punkt und Koma
-            setTemperature(value);
-        }
+    const options = Array.from({ length: 51 }, (_, i) => i);
+
+    const handleInputChange = (val: string) => {
+        setInputValue(val)
     };
 
-    const isCorrect = temperature === "24.5" || temperature === "24,5"; // Hier Temperatur anpassen
-
     return (
-        <QuizContainer
-            titleContent={"Wie warm ist es im Raum?"}
-            onClick={() =>navigate(routeMap.quiz4)}
-            disabled={!isCorrect}
-        >
-            <Box sx={{ width: "100%", display: "flex" }}>
-                <AtomicInput value={temperature} onChange={handleChange} />
-            </Box>
+        <QuizContainer onClick={() => navigate(routeMap.quiz4)}>
+            <Box>
+                <FormControl sx={{ flexGrow: 1 }}>
+                    <Select
+                        value={value}
+                        onChange={(e) => setValue(Number(e.target.value))}
+                        sx={{
+                            alignItems: "center",
+                            textAlign: "center",
+                            flexGrow: 1,
+                            minWidth: 60,
+                            maxWidth: 200,
+                            backgroundColor: "black",
+                            border: "2px solid #00E5FF",
+                            borderRadius: "8px",
+                            "& .MuiOutlinedInput-notchedOutline": {
+                                border: "none",
+                            },
+                            "&:hover .MuiOutlinedInput-notchedOutline": {
+                                border: "2px solid #00E5FF",
+                            },
+                            "& .MuiInputBase-input": {
+                                textAlign: "center",
+                                color: "#FFFFFF",
+                                fontSize: "2rem",
+                                fontFamily: "'Orbitron', sans-serif",
+                                textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
+                            },
+                        }}
+                    >
+                        {options.map((num) => (
+                            <MenuItem
+                                key={num}
+                                value={num}
+                                sx={{
+                                    padding: 0,
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: "100%",
+                                        textAlign: "center",
+                                        color: "#FFFFFF",
+                                        backgroundColor:"black",
+                                        fontSize: "2rem",
+                                        fontFamily: "'Orbitron', sans-serif",
+                                        textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
+                                        padding: "8px 16px", // optional: für etwas Platz
+                                    }}
+                                >
+                                    {num}
+                                </Box>
+                            </MenuItem>
+                        ))}
 
+                    </Select>
+                </FormControl>
+
+                <AtomicInput
+                    value={inputValue}
+                    onChange={handleInputChange}
+                />
+            </Box>
         </QuizContainer>
     );
 }
