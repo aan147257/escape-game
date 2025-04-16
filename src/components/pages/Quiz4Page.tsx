@@ -66,6 +66,7 @@ function Quiz4Page() {
                 open={openPopup}
                 onClose={() => setOpenPopup(false)}
                 onSubmit={handlePopupSubmit}
+                dialogContent={"Résolvez la problématique, les éléments ont été mal associés et ont réagi de manière incontrôlable."}
             />
         </QuizContainer>
 

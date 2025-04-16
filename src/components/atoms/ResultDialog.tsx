@@ -10,9 +10,10 @@ interface ResultDialogProps {
     open: boolean;
     onClose: () => void;
     onSubmit: () => void;
+    dialogContent: string;
 }
 
-const ResultDialog = ({ open, onClose, onSubmit }: ResultDialogProps) => {
+const ResultDialog = ({ open, onClose, onSubmit, dialogContent }: ResultDialogProps) => {
     const handleClose = (_event: object, reason: string) => {
         if (reason !== "backdropClick" && reason !== "escapeKeyDown") {
             onClose();
@@ -24,8 +25,8 @@ const ResultDialog = ({ open, onClose, onSubmit }: ResultDialogProps) => {
             open={open}
             onClose={handleClose}
             disableEscapeKeyDown
-            PaperProps={{
-                sx: {
+            sx={{
+                '& .MuiPaper-root': {
                     backgroundColor: "#121212",
                     borderRadius: "16px",
                     border: "2px solid #00E5FF",
@@ -34,14 +35,14 @@ const ResultDialog = ({ open, onClose, onSubmit }: ResultDialogProps) => {
                     py: 3,
                     maxWidth: "500px",
                     textAlign: "center",
-                },
+                }
             }}
         >
-            <DialogContent>
+        <DialogContent>
                 <DialogContentText
                     sx={{ color: "#FFFFFF", fontSize: "16px", fontWeight: 300 }}
                 >
-                    Résolvez la problématique, les éléments ont été mal associés et ont réagi de manière incontrôlable.
+                    {dialogContent}
                 </DialogContentText>
             </DialogContent>
             <DialogActions sx={{ justifyContent: "center", mt: 2 }}>
