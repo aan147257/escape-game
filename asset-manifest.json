@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/escape-game/static/css/main.547ca05d.css",
-    "main.js": "/escape-game/static/js/main.e655f54c.js",
+    "main.js": "/escape-game/static/js/main.e9725625.js",
     "static/js/453.979de7f1.chunk.js": "/escape-game/static/js/453.979de7f1.chunk.js",
     "static/media/homePagePic.png": "/escape-game/static/media/homePagePic.c87d243c2a9740191cf8.png",
     "static/media/phiole-quiz6.png": "/escape-game/static/media/phiole-quiz6.599cde94e1f20577c9a6.png",
     "index.html": "/escape-game/index.html",
     "main.547ca05d.css.map": "/escape-game/static/css/main.547ca05d.css.map",
-    "main.e655f54c.js.map": "/escape-game/static/js/main.e655f54c.js.map",
+    "main.e9725625.js.map": "/escape-game/static/js/main.e9725625.js.map",
     "453.979de7f1.chunk.js.map": "/escape-game/static/js/453.979de7f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.547ca05d.css",
-    "static/js/main.e655f54c.js"
+    "static/js/main.e9725625.js"
   ]
 }
