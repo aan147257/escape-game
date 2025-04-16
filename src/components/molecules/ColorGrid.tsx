@@ -7,21 +7,24 @@ interface ColorGridProps {
 
 const ColorGrid = ({ setColorsRef }: ColorGridProps) => {
     const [colors, setColors] = useState(
-        Array.from({ length: 6 }, (_, id) => ({ id, color: 'white' }))
+        Array.from({ length: 6 }, (_, id) => ({ id, color: 'transparent' }))
     );
 
     const colorOptions = ['#000000', '#5dadfd', '#fd3e3e', '#ffffff', '#fdfd2f', '#4efd4e'];
 
     const handleBoxClick = (id: number) => {
         setColors((prevColors) =>
-           prevColors.map((item) =>
-                item.id === id
-                    ? {
-                        ...item,
-                        color: colorOptions[(colorOptions.indexOf(item.color) + 1) % colorOptions.length],
-                    }
-                    : item
-           )
+            prevColors.map((item) => {
+                if (item.id !== id) return item;
+
+                const currentIndex = colorOptions.indexOf(item.color);
+                const newColor =
+                    currentIndex === -1
+                        ? colorOptions[0] // Wenn "transparent" oder andere Farbe -> nimm erste Farbe
+                        : colorOptions[(currentIndex + 1) % colorOptions.length];
+
+                return { ...item, color: newColor };
+            })
         );
     };
 
@@ -44,7 +47,7 @@ const ColorGrid = ({ setColorsRef }: ColorGridProps) => {
                                 boxShadow: '0px 4px 8px rgba(0, 229, 255, 0.6)',
                                 border: '2px solid #00E5FF',
                                 '&:hover': {
-                                    boxShadow: '0 0 12px rgba(0, 229, 255, 0.8) ',
+                                    boxShadow: '0 0 12px rgba(0, 229, 255, 0.8)',
                                 },
                                 cursor: 'pointer',
                                 transition: 'background-color 0.3s',

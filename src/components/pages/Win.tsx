@@ -52,15 +52,15 @@ function Win() {
                 <Typography
                     variant="h1"
                     sx={{
-                        color: '#0bfbfa',
+                        color: '#0bfb17',
                         fontWeight: 'bold',
                         marginBottom: '10px',
                         fontFamily: 'Orbitron, sans-serif',
-                        fontSize: '10vw',
-                        textShadow: `
-                            0 0 5px #0bfbfa,
-                            0 0 10px rgba(11, 251, 250, 0.6),
-                            0 0 15px rgba(11, 251, 250, 0.4)
+                        fontSize: '20vw',
+                        textShadow: ` 
+                            0 0 5px #0bfb17,
+                            0 0 10px rgba(11, 251, 23, 0.6),
+                            0 0 15px rgba(11, 251, 23, 0.4)
                         `
                     }}
                 >

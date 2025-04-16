@@ -50,19 +50,20 @@ function GameOver() {
                 <Typography
                     variant="h1"
                     sx={{
-                        color: '#0bfbfa',
+                        color: '#ff1a1a',
                         fontWeight: 'bold',
                         marginBottom: '10px',
                         fontFamily: 'Orbitron, sans-serif',
                         fontSize: '10vw',
                         textShadow: `
-                            0 0 5px #0bfbfa,
-                            0 0 10px rgba(11, 251, 250, 0.6),
-                            0 0 15px rgba(11, 251, 250, 0.4)
+                            0 0 5px #ff1a1a,
+                            0 0 10px rgba(255, 26, 26, 0.6),
+                            0 0 15px rgba(255, 26, 26, 0.4)
                         `
                     }}
                 >
-                    GAME
+
+                GAME
                 </Typography>
 
                 <Typography

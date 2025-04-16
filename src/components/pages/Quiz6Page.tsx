@@ -21,7 +21,7 @@ function Quiz6() {
 
     return (
         <QuizContainer
-            onClick={() => navigate(routeMap.quiz7)}
+            onClick={() =>navigate(routeMap.quizWin)}
             disabled={!isCorrect}
         >
             <Box
