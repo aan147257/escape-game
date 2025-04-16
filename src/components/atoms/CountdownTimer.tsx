@@ -19,7 +19,7 @@ function CountdownTimer() {
                 color: "#00E5FF",
                 textShadow: "0 0 12px rgba(0, 229, 255, 0.8)",
                 paddingLeft:3,
-                fontSize:"5vh"
+                fontSize:"2vw"
             }}
         >
             {formatTime(secondsLeft)} verbleibend

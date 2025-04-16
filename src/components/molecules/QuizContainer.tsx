@@ -34,7 +34,7 @@ const QuizContainer = ({ children, titleContent, onClick, disabled }: QuizContai
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    flexGrow: 1, // nimmt verfügbaren Platz zwischen Header und Button
+                    flexGrow: 1,
                     width: "100%",
                     margin: "0 auto",
                     gap: "2rem",
@@ -43,7 +43,7 @@ const QuizContainer = ({ children, titleContent, onClick, disabled }: QuizContai
                 <Typography
                     variant="h3"
                     sx={{
-                        fontSize: "clamp(28px, 4vw, 42px)",
+                        fontSize: "3vw",
                         textTransform: "uppercase",
                         letterSpacing: "3px",
                         fontFamily: "'Orbitron', sans-serif",
