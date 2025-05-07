@@ -8,8 +8,6 @@ import Quiz3 from "./components/pages/Quiz3Page";
 import Quiz4 from "./components/pages/Quiz4Page";
 import Quiz5 from "./components/pages/Quiz5Page";
 import Quiz6 from "./components/pages/Quiz6Page";
-import Quiz7 from "./components/pages/Quiz7Page";
-import Quiz8 from "./components/pages/Quiz8Page";
 import GameOver from "./components/pages/GameOver";
 import Win from "./components/pages/Win";
 
@@ -21,8 +19,6 @@ export const routeMap = {
     quiz4: "/tz9qf",
     quiz5: "/p3nxa",
     quiz6: "/b7wmd",
-    quiz7: "/x5zcu",
-    quiz8: "/d8lqp",
     home: "/h7Mwe",
     quizWin: "/Qw3qz4NWwQw3qz4NWw",
 };
@@ -39,8 +35,6 @@ function App() {
                     <Route path="/tz9qf" element={<Quiz4 />} />
                     <Route path="/p3nxa" element={<Quiz5 />} />
                     <Route path="/b7wmd" element={<Quiz6 />} />
-                    <Route path="/x5zcu" element={<Quiz7 />} />
-                    <Route path="/d8lqp" element={<Quiz8 />} />
                     <Route path="/gmOv" element={<GameOver />} />
                     <Route path="/Qw3qz4NWwQw3qz4NWw" element={<Win />} />
                     <Route path="*" element={<GameOver />} />

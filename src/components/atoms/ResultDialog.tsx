@@ -5,6 +5,7 @@ import {
     DialogActions,
 } from "@mui/material";
 import AtomicButton from "../atoms/AtomicButton";
+import { useTranslation } from "react-i18next";
 
 interface ResultDialogProps {
     open: boolean;
@@ -14,6 +15,7 @@ interface ResultDialogProps {
 }
 
 const ResultDialog = ({ open, onClose, onSubmit, dialogContent }: ResultDialogProps) => {
+    const {t} = useTranslation();
     const handleClose = (_event: object, reason: string) => {
         if (reason !== "backdropClick" && reason !== "escapeKeyDown") {
             onClose();
@@ -46,7 +48,7 @@ const ResultDialog = ({ open, onClose, onSubmit, dialogContent }: ResultDialogPr
                 </DialogContentText>
             </DialogContent>
             <DialogActions sx={{ justifyContent: "center", mt: 2 }}>
-                <AtomicButton content="Continuer" onClick={onSubmit} />
+                <AtomicButton content={t("resultDialogB")} onClick={onSubmit} />
             </DialogActions>
         </Dialog>
     );

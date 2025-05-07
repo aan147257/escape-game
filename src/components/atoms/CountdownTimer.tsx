@@ -1,10 +1,12 @@
 import {Typography} from "@mui/material";
 import React from "react";
 import {useTimer} from "../../TimerContext";
+import { useTranslation } from "react-i18next";
 
 
 function CountdownTimer() {
     const {  secondsLeft } = useTimer();
+    const { t } = useTranslation();
     const formatTime = (seconds: number) => {
         const minutes = Math.floor(seconds / 60);
         const secs = seconds % 60;
@@ -22,7 +24,7 @@ function CountdownTimer() {
                 fontSize:"2vw"
             }}
         >
-            {formatTime(secondsLeft)} verbleibend
+            {formatTime(secondsLeft)} {t("left")}
         </Typography>
 
     )

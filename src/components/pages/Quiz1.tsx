@@ -4,11 +4,13 @@ import QuizContainer from "../molecules/QuizContainer";
 import { useNavigate } from "react-router-dom";
 import { routeMap } from "../../App";
 import ResultDialog from "../atoms/ResultDialog";
+import { useTranslation } from "react-i18next";
 
 function Quiz1() {
     const colorsRef = useRef<string[]>([]);
     const [openPopup, setOpenPopup] = useState(false);
     const navigate = useNavigate();
+    const {t} = useTranslation();
 
     const handleSetColorsRef = (getter: () => string[]) => {
         colorsRef.current = getter();
@@ -36,13 +38,13 @@ function Quiz1() {
     };
 
     return (
-        <QuizContainer onClick={checkOrder} titleContent={"Setze die Farben in die richtige Reihenfolge:"}>
+        <QuizContainer onClick={checkOrder} titleContent={t("quiz1Q")}>
             <ColorGrid setColorsRef={handleSetColorsRef} />
             <ResultDialog
                 open={openPopup}
                 onClose={() => setOpenPopup(false)}
                 onSubmit={handlePopupSubmit}
-                dialogContent={"Je ne suis ni le plus chaud ni le plus vif, et à mes côtés, l\'ombre s\'installe discrète et protectrice."}
+                dialogContent={t("quiz1Di")}
             />
         </QuizContainer>
     );

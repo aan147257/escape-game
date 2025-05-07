@@ -10,7 +10,7 @@ const ColorGrid = ({ setColorsRef }: ColorGridProps) => {
         Array.from({ length: 6 }, (_, id) => ({ id, color: 'transparent' }))
     );
 
-    const colorOptions = ['#000000', '#5dadfd', '#fd3e3e', '#ffffff', '#fdfd2f', '#4efd4e'];
+    const colorOptions = ['#fd3e3e', '#ffffff', '#fdfd2f', '#4efd4e', '#000000', '#5dadfd'];
 
     const handleBoxClick = (id: number) => {
         setColors((prevColors) =>

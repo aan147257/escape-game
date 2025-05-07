@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 import QuizContainer from "../molecules/QuizContainer";
 import AtomicInput from "../atoms/AtomicInput";
 import { routeMap } from "../../App";
+import { useTranslation } from "react-i18next";
 
 function Quiz5Page() {
     const [inputs, setInputs] = useState(["", "", ""]);
     const navigate = useNavigate();
+    const {t} = useTranslation();
 
     const handleChange = (value: string, index?: number) => {
         if (/^[A-Za-zÀ-ÿ\- ]*$/.test(value) && index !== undefined) {
@@ -17,13 +19,17 @@ function Quiz5Page() {
         }
     };
 
+    const normalize = (str: string) =>
+        str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase();
 
-    const isCorrect = inputs[ 0 ].toLowerCase() === "calcium" && inputs[ 1 ].toLowerCase() === "oxygène" && inputs[ 2 ].toLowerCase() === "carbone";
-
+    const isCorrect =
+        normalize(inputs[0]) === normalize(t("quiz4A3")) &&
+        normalize(inputs[1]) === normalize(t("quiz4A2")) &&
+        normalize(inputs[2]) === normalize(t("quiz4A1"));
 
     return (
         <QuizContainer
-            titleContent={" Placez les éléments dans l'ordre correct:"}
+            titleContent={t("quiz4Q")}
             onClick={() => navigate(routeMap.quiz6)}
             disabled={!isCorrect}
         >

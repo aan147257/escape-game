@@ -5,11 +5,13 @@ import AtomicInput from "../atoms/AtomicInput";
 import QuizContainer from "../molecules/QuizContainer";
 import {routeMap} from "../../App";
 import ResultDialog from "../atoms/ResultDialog";
+import { useTranslation } from "react-i18next";
 
 function Quiz4Page() {
     const [inputs, setInputs] = useState(["", "", ""]);
     const [openPopup, setOpenPopup] = useState(false);
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const handleChange = (value: string, index?: number) => {
         if (/^[A-Za-zÀ-ÿ\- ]*$/.test(value) && index !== undefined) {
@@ -19,7 +21,13 @@ function Quiz4Page() {
         }
     };
 
-    const isCorrect = inputs[0].toLowerCase() === "carbone" && inputs[1].toLowerCase() === "oxygène" && inputs[2].toLowerCase() === "calcium";
+    const normalize = (str: string) =>
+        str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase();
+
+    const isCorrect =
+        normalize(inputs[0]) === normalize(t("quiz4A1")) &&
+        normalize(inputs[1]) === normalize(t("quiz4A2")) &&
+        normalize(inputs[2]) === normalize(t("quiz4A3"));
 
     const handleSubmit = () => {
         if (isCorrect) {
@@ -34,7 +42,7 @@ function Quiz4Page() {
 
     return (
         <QuizContainer
-            titleContent={"Placez les éléments dans l'ordre correct:"}
+            titleContent={t("quiz4Q")}
             onClick={() => handleSubmit()}
             disabled={!isCorrect}
         >
@@ -48,7 +56,7 @@ function Quiz4Page() {
                 }}
             >
                 {inputs.map((input, index) => (
-                    <Box key={index} sx={{display: "flex", alignItems: "center"}}>
+                    <Box sx={{display: "flex", alignItems: "center"}}>
                         <AtomicInput
                             key={index}
                             value={input}
@@ -66,7 +74,7 @@ function Quiz4Page() {
                 open={openPopup}
                 onClose={() => setOpenPopup(false)}
                 onSubmit={handlePopupSubmit}
-                dialogContent={"Résolvez la problématique, les éléments ont été mal associés et ont réagi de manière incontrôlable."}
+                dialogContent={t("quiz4D")}
             />
         </QuizContainer>
 

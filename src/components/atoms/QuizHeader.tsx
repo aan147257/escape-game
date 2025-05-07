@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import CountdownTimer from "../atoms/CountdownTimer";
+import LanguageDropdown from "./LanguageDropdown";
 
 function QuizHeader() {
 
@@ -14,6 +15,7 @@ function QuizHeader() {
             }}
         >
             <CountdownTimer/>
+            <LanguageDropdown/>
 
         </Box>
     );
