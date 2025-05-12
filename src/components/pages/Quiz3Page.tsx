@@ -1,122 +1,59 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import QuizContainer from "../molecules/QuizContainer";
-import { Box, FormControl, MenuItem, Select } from "@mui/material";
 import { routeMap } from "../../App";
-import AtomicInput from "../atoms/AtomicInput";
+import { useTranslation } from "react-i18next";
+import { TimeField } from "@mui/x-date-pickers";
+import dayjs, { Dayjs } from "dayjs";
 
 function Quiz3Page() {
-    const [value, setValue] = useState<number>(10);
-    const [inputValue, setInputValue] = useState<string>("");
+    const [value, setValue] = useState<Dayjs | null>(dayjs("2000-01-01T00:00"));
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
-    const options = Array.from({ length: 41 }, (_, i) => i + 10);
-
-    const handleInputChange = (val: string) => {
-        setInputValue(val)
+    const checkAnswer = (time: Dayjs | null) => {
+        if (time?.format("HH:mm") === "11:05") {
+            navigate(routeMap.quiz4);
+        }
     };
 
     return (
-        <QuizContainer onClick={() => navigate(routeMap.quiz4)}>
-            <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-                <FormControl sx={{ width: 150 }}>
-                    <Select
-                        value={value}
-                        onChange={(e) => setValue(Number(e.target.value))}
-                        displayEmpty
-                        MenuProps={{
-                            PaperProps: {
-                                sx: {
-                                    backgroundColor: "black",
-                                    border: "2px solid #00E5FF",
-                                    boxShadow: "0 0 10px rgba(0, 229, 255, 0.5)",
-                                    "& ul": {
-                                        paddingTop: 0,
-                                        paddingBottom: 0,
-                                        maxHeight: "25rem",
-                                        overflowY: "auto",
-                                        "&::-webkit-scrollbar": {
-                                            width: "8px",
-                                        },
-                                        "&::-webkit-scrollbar-thumb": {
-                                            backgroundColor: "#00E5FF",
-                                            borderRadius: "4px",
-                                        },
-                                        "&::-webkit-scrollbar-track": {
-                                            backgroundColor: "black",
-                                        },
-                                    },
-                                },
-                            },
-                        }}
-                        sx={{
-                            backgroundColor: "black",
-                            border: "2px solid #00E5FF",
-                            borderRadius: "8px",
-                            height: 60,
-                            "& .MuiOutlinedInput-notchedOutline": {
-                                border: "none",
-                            },
-                            "&:hover .MuiOutlinedInput-notchedOutline": {
-                                border: "2px solid #00E5FF",
-                            },
-                            "& .MuiSelect-select": {
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color: "#FFFFFF",
-                                fontSize: "2rem",
-                                fontFamily: "'Orbitron', sans-serif",
-                                textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
-                                padding: 0,
-                                height: "100%",
-                                width: "100%",
-                                textAlign: "center",
-                            },
-                            svg: {
-                                color: "#00E5FF",
-                            },
-                        }}
-                    >
-                    {options.map((num) => (
-                            <MenuItem
-                                key={num}
-                                value={num}
-                                sx={{
-                                    padding: 0,
-                                    height: 50,
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    backgroundColor: "black",
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        width: "100%",
-                                        textAlign: "center",
-                                        color: "#FFFFFF",
-                                        fontSize: "2rem",
-                                        fontFamily: "'Orbitron', sans-serif",
-                                        textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        height: "100%",
-                                    }}
-                                >
-                                    {num}
-                                </Box>
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
-
-                <AtomicInput
-                    value={inputValue}
-                    onChange={handleInputChange}
-                />
-            </Box>
+        <QuizContainer
+            onClick={() => checkAnswer(value)}
+            titleContent={t("quiz3Q")}
+        >
+            <TimeField
+                value={value}
+                onChange={(newValue) => setValue(newValue)}
+                format="HH:mm"
+                sx={{
+                    flexGrow: 1,
+                    minWidth: 60,
+                    maxWidth: 200,
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    border: "2px solid #00E5FF",
+                    borderRadius: "8px",
+                    textAlign: "center",
+                    input: {
+                        textAlign: "center",
+                        color: "#FFFFFF",
+                        fontSize: "2rem",
+                        fontFamily: "'Orbitron', sans-serif",
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        border: "none",
+                    },
+                    "&:hover .MuiOutlinedInput-notchedOutline": {
+                        border: "2px solid #00E5FF",
+                    },
+                    "& .MuiInputBase-input": {
+                        textShadow: "0 0 8px rgba(0, 229, 255, 0.8)",
+                    },
+                    "& .MuiInputLabel-root": {
+                        color: "#FFFFFF",
+                    },
+                }}
+            />
         </QuizContainer>
     );
 }

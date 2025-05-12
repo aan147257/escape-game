@@ -3,10 +3,12 @@ import {useNavigate} from "react-router-dom";
 import QuizContainer from "../molecules/QuizContainer";
 import { TextField } from "@mui/material";
 import { routeMap } from "../../App";
+import { useTranslation } from "react-i18next";
 
 function Quiz2() {
     const [inputValue, setInputValue] = useState<number>(0);
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = parseInt(event.target.value, 10);
@@ -20,7 +22,7 @@ function Quiz2() {
     return (
         <QuizContainer
             onClick={() => {if (isCorrect)navigate(routeMap.quiz3)}}
-            titleContent={""}
+            titleContent={t("quiz2Q")}
         >
             <TextField
                 type="number"
@@ -28,14 +30,10 @@ function Quiz2() {
                 onChange={handleChange}
                 inputMode="numeric"
                 onKeyDown={(e) => e.preventDefault()}
-                slotProps={{
-                    input: {
-                        inputProps: {
-                            min: 0,
-                            max: 25,
-                            step: 1,
-                        },
-                    },
+                inputProps={{
+                    min: 0,
+                    max: 25,
+                    step: 1,
                 }}
                 sx={{
                     flexGrow: 1,

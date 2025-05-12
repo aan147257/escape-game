@@ -10,6 +10,8 @@ import Quiz5 from "./components/pages/Quiz5Page";
 import Quiz6 from "./components/pages/Quiz6Page";
 import GameOver from "./components/pages/GameOver";
 import Win from "./components/pages/Win";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 
 export const routeMap = {
@@ -25,23 +27,25 @@ export const routeMap = {
 
 function App() {
     return (
-        <Router>
-            <TimerProvider>
-                <Routes>
-                    <Route path="/h7Mwe" element={<Home />} />
-                    <Route path="/a9xq2" element={<Quiz1 />} />
-                    <Route path="/v7plm" element={<Quiz2 />} />
-                    <Route path="/kd2cz" element={<Quiz3 />} />
-                    <Route path="/tz9qf" element={<Quiz4 />} />
-                    <Route path="/p3nxa" element={<Quiz5 />} />
-                    <Route path="/b7wmd" element={<Quiz6 />} />
-                    <Route path="/gmOv" element={<GameOver />} />
-                    <Route path="/Qw3qz4NWwQw3qz4NWw" element={<Win />} />
-                    <Route path="*" element={<GameOver />} />
-                    <Route path="/" element={<Navigate to="/h7Mwe" />} />
-                </Routes>
-            </TimerProvider>
-        </Router>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Router>
+                <TimerProvider>
+                    <Routes>
+                        <Route path="/h7Mwe" element={<Home />} />
+                        <Route path="/a9xq2" element={<Quiz1 />} />
+                        <Route path="/v7plm" element={<Quiz2 />} />
+                        <Route path="/kd2cz" element={<Quiz3 />} />
+                        <Route path="/tz9qf" element={<Quiz4 />} />
+                        <Route path="/p3nxa" element={<Quiz5 />} />
+                        <Route path="/b7wmd" element={<Quiz6 />} />
+                        <Route path="/gmOv" element={<GameOver />} />
+                        <Route path="/Qw3qz4NWwQw3qz4NWw" element={<Win />} />
+                        <Route path="*" element={<GameOver />} />
+                        <Route path="/" element={<Navigate to="/h7Mwe" />} />
+                    </Routes>
+                </TimerProvider>
+            </Router>
+        </LocalizationProvider>
     );
 }
 
