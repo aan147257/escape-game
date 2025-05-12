@@ -12,7 +12,7 @@ function Home() {
 
     const handlePlayButton = () => {
         navigate(routeMap.quiz1);
-        startTimer(1200);
+        startTimer(2400);
 
     };
 
