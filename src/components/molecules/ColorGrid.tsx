@@ -46,11 +46,12 @@ const ColorGrid = ({ setColorsRef }: ColorGridProps) => {
                                 borderRadius: '15px',
                                 boxShadow: '0px 4px 8px rgba(0, 229, 255, 0.6)',
                                 border: '2px solid #00E5FF',
+                                transition: "all 0.3s ease-in-out",
                                 '&:hover': {
-                                    boxShadow: '0 0 12px rgba(0, 229, 255, 0.8)',
+                                    boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.15)",
+                                    transform: "scale(1.05)",
                                 },
                                 cursor: 'pointer',
-                                transition: 'background-color 0.3s',
                             }}
                         />
                     </Grid>
